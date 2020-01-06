@@ -3,11 +3,11 @@ package mezz.modnametooltip;
 import javax.annotation.Nullable;
 import java.util.List;
 
+import net.minecraft.util.text.StringTextComponent;
 import net.minecraftforge.fml.ModList;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.text.ITextComponent;
-import net.minecraft.util.text.TextComponentString;
 import net.minecraft.util.text.TextFormatting;
 import net.minecraftforge.event.entity.player.ItemTooltipEvent;
 
@@ -28,7 +28,7 @@ public class TooltipEventHandler {
 			if (modName != null) {
 				List<ITextComponent> toolTip = event.getToolTip();
 				if (!isModNameAlreadyPresent(toolTip, modName)) {
-					toolTip.add(new TextComponentString(modNameFormat + modName));
+					toolTip.add(new StringTextComponent(modNameFormat + modName));
 				}
 			}
 		}
