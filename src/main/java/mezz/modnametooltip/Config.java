@@ -6,11 +6,11 @@ import java.util.Locale;
 import java.util.stream.Collectors;
 
 import net.minecraft.util.text.TextFormatting;
-import net.minecraftforge.fml.client.event.ConfigChangedEvent;
 
 import net.minecraftforge.common.ForgeConfigSpec;
 import net.minecraftforge.common.ForgeConfigSpec.ConfigValue;
 
+import net.minecraftforge.fml.config.ModConfig;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
@@ -68,8 +68,8 @@ public class Config {
 		return format.toString();
 	}
 
-	public void onConfigChanged(ConfigChangedEvent.OnConfigChangedEvent eventArgs) {
-		if (ModNameTooltip.MOD_ID.equals(eventArgs.getModID())) {
+	public void onConfigChanged(ModConfig.Reloading eventArgs) {
+		if (ModNameTooltip.MOD_ID.equals(eventArgs.getConfig().getModId())) {
 			cachedModNameFormat = null;
 		}
 	}
